@@ -1,6 +1,8 @@
 # healthchecks
 [![Build Status](https://travis-ci.org/andela/Healthchecks_CodeDragons.svg?branch=master)](https://travis-ci.org/andela/Healthchecks_CodeDragons)
 
+[![Coverage Status](https://coveralls.io/repos/github/andela/Healthchecks_CodeDragons/badge.svg?branch=master)](https://coveralls.io/github/andela/Healthchecks_CodeDragons?branch=master)
+
 ![Screenshot of Welcome page](/stuff/screenshots/welcome.png?raw=true "Welcome Page")
 
 ![Screenshot of My Checks page](/stuff/screenshots/my_checks.png?raw=true "My Checks Page")

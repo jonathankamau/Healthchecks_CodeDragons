@@ -2,7 +2,7 @@ from django.contrib.auth.hashers import make_password
 from hc.test import BaseTestCase
 
 
-class CheckTokenTestCase(BaseTestCase):
+class CheckTokenTestCase(BaseTestCase): 
 
     def setUp(self):
         super(CheckTokenTestCase, self).setUp()

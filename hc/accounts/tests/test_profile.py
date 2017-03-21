@@ -85,7 +85,7 @@ class ProfileTestCase(BaseTestCase):
 
         form = {"set_team_name": "1", "team_name": "Charlies Team"}
         r = self.client.post("/accounts/profile/", form)
-        assert r.status_code == 403
+        assert r.status_code == 403 
 
     def test_it_switches_to_own_team(self):
         self.client.login(username="bob@example.org", password="password")

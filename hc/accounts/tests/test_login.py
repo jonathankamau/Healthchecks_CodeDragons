@@ -5,7 +5,7 @@ from hc.accounts.models import Member
 from hc.api.models import Check
 
 
-class LoginTestCase(TestCase):
+class LoginTestCase(TestCase): 
 
     def test_it_sends_link(self):
         check = Check()

@@ -14,12 +14,17 @@ class ProfileTestCase(BaseTestCase):
         r = self.client.post("/accounts/profile/", form)
         assert r.status_code == 302
 
-        # profile.token should be set now
+        # profile.token should be set now 
         self.alice.profile.refresh_from_db()
         token = self.alice.profile.token
+
         ### Assert that the token is set
+        self.assertNotEqual(token,"")
 
         ### Assert that the email was sent and check email content
+        self.assertEqual(len(mail.outbox), 1)
+        self.assertEqual(mail.outbox[0].subject, 'Set password on healthchecks.io')
+        self.assertIn("Hello,\n\nHere's a link to set a password", mail.outbox[0].body)
 
     def test_it_sends_report(self):
         check = Check(name="Test Check", user=self.alice)

@@ -1,4 +1,5 @@
 from django.core import mail
+from django.test import tag
 
 from hc.test import BaseTestCase
 from hc.accounts.models import Member
@@ -33,7 +34,7 @@ class ProfileTestCase(BaseTestCase):
         self.alice.profile.send_report()
 
         ###Assert that the email was sent and check email content
-
+    @tag('add_member')
     def test_it_adds_team_member(self):
         self.client.login(username="alice@example.org", password="password")
 

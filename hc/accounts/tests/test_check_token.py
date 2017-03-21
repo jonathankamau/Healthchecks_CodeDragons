@@ -29,4 +29,5 @@ class CheckTokenTestCase(BaseTestCase):
         r = self.client.post("/accounts/check_token/alice/bad-token/")
         self.assertRedirects(r,"/accounts/login/")
 
+
     ### Any other tests?

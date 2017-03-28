@@ -22,8 +22,8 @@ class LoginTestCase(TestCase):
 
         ### Assert that a user was created
 
-        user_check = User.objects.filter(email="alice@example.org")
-        self.assertEqual(user_check[0].email, form["email"])
+        user = User.objects.get(email="alice@example.org")
+        self.assertEqual(user.email, form["email"])
 
         # And email sent
         self.assertEqual(len(mail.outbox), 1)
@@ -33,7 +33,6 @@ class LoginTestCase(TestCase):
         self.assertIn('Hello,\n\nTo log into healthchecks.io, please open the link below:', mail.outbox[0].body)
 
         ### Assert that check is associated with the new user
-        user = User.objects.get(email="alice@example.org")
 
         test_user = Check.objects.get(user=user)
         self.assertEqual(test_user.user, user)

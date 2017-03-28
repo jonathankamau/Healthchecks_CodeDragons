@@ -1,5 +1,6 @@
 from django.contrib.auth.hashers import make_password
 from hc.test import BaseTestCase
+from django.test import tag
 
 
 class CheckTokenTestCase(BaseTestCase): 
@@ -16,7 +17,6 @@ class CheckTokenTestCase(BaseTestCase):
     def test_it_redirects(self):
         r = self.client.post("/accounts/check_token/alice/secret-token/")
         self.assertEqual(r.status_code, 302)
-        # self.assertIn(self.profile.user, self.client.session)
         self.assertRedirects(r, "/checks/")
 
      # After login, token should be blank
@@ -24,7 +24,8 @@ class CheckTokenTestCase(BaseTestCase):
         self.assertEqual(self.profile.token, "")
 
     ### Login and test it redirects already logged in
-    def test_redirects_already_logged_in(self):
+    @tag("test_redirects_if_already_logged_in")
+    def test_redirects_if_already_logged_in(self):
         self.client.login(username="ben@example.org", password="password")
 
         form = {"email": "ben@example.org"}
